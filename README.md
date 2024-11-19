@@ -18,6 +18,15 @@ const numbers = {
 };
 ```
 
+#### Решение:
+
+```
+for (let key in numbers) {
+    if (numbers[key] >= 3)
+        console.log(numbers[key]);
+}
+```
+
 ### Задание 2:
 
 Из объекта post, который задан в константе, выведите значения с
@@ -50,6 +59,15 @@ const post = {
 };
 ```
 
+#### Решение:
+
+```
+console.log(post.author);
+console.log(post.comments[0].rating.dislikes);
+console.log(post.comments[1].userId);
+console.log(post.comments[1].text);
+```
+
 ### Задание 3:
 
 Дан массив products. Уменьшите цену каждого продукта на 15% с
@@ -72,6 +90,16 @@ const products = [
 ];
 ```
 
+#### Решение:
+
+```
+products.forEach(product => {
+    product.price *= 0.85;
+});
+
+console.log(products);
+```
+
 ### Задание 4
 
 Описание задачи:
@@ -82,7 +110,7 @@ const products = [
 отсортированный массив в консоль.
 
 ```
-const products = [
+const products2 = [
     {
         id: 3,
         price: 127,
@@ -105,6 +133,19 @@ const products = [
 ];
 ```
 
+#### Решение:
+
+```
+const productsWithPhotos = products2.filter(product => product.photos &&
+    product.photos.length > 0);
+console.log(productsWithPhotos);
+
+const sortedProducts = products2.slice().sort((x, y) => x.price -
+    y.price);
+console.log(sortedProducts);
+
+```
+
 ### Задание 5 Необязательное задание
 
 Описание задачи: Есть два массива en и ru. Объедините их в объект, где значения из
@@ -114,4 +155,16 @@ const products = [
 const en = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
 const ru = ["понедельник", "вторник", "среда", "четверг", "пятница",
 "суббота", "воскресенье"];
+```
+
+#### Решение:
+
+```
+const week = {};
+
+for (let i = 0; i < en.length; i++) {
+    week[en[i]] = ru[i];
+}
+
+console.log(week);
 ```
